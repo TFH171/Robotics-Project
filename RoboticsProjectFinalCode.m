@@ -156,7 +156,7 @@ for i=1:1:length(t)
 end
 
 %% A
-% 3 Joint variable movement with one being the base rotation
+
 
 Ao0=[1.3846	2.4098	-2.2236];
 Ao1=[0.9550	2.2111	-1.5953];
@@ -167,7 +167,7 @@ Ao5=[1.0230	2.3856	-1.8378];
 
 
 
-% Trajectory planning for the letter A
+% letter A trajectory
 Aotraj1=jtraj(Ao0,Ao1,t); 
 Aotraj2=jtraj(Ao1,Ao2,t); 
 Aotraj3=jtraj(Ao3,Ao4,t); 
@@ -236,7 +236,7 @@ S4=[0.8415	2.2686	-1.5393];
 S5=[0.6980	2.2565	-1.3837];
 S6=[0.7648	2.3320	-1.5260];
 
-% Trajectory planning for the letter A
+% Letter S trajectory
 Straj1=jtraj(S0,S1,t); 
 Straj2=jtraj(S1,S2,t); 
 Straj3=jtraj(S2,S3,t); 
@@ -316,7 +316,7 @@ A3=[0.4103	2.3897	-1.2291];
 A4=[0.4244	2.3068	-1.1603];
 A5=[0.6362	2.3628	-1.4282];
 
-% Trajectory planning for the letter A
+% Letter A trajectory
 t=0:0.33:1;
 Atraj1=jtraj(A0,A1,t); 
 Atraj2=jtraj(A1,A2,t); 
@@ -398,59 +398,55 @@ Ntraj5=jtraj(N4,N5,t);
 
 hold on
 
-%  Draw1Segment trajectory
+%  Segment 1 trajectory
 for i=1:1:length(t)
     Hasb=Hasbot.fkine(Ntraj1(i,:));
     N_letter(i,:)=transl(Hasb);  
     
     jta=N_letter; 
     plot2(jta(i,:),'r.')  
-    Hasbot.plot(Ntraj1(i,:),'scale',0.3,'linkcolor','k','jointcolor','c') %  Draw trajectory animation
-    plot2(N_letter,'m','linewidth',2)         %  Draw a trajectory line (blue line)
+    Hasbot.plot(Ntraj1(i,:),'scale',0.3,'linkcolor','k','jointcolor','c') 
+    plot2(N_letter,'m','linewidth',2)         
 end
-%  Draw2Segment trajectory
+%  Segment 2 trajectory
 for i=1:1:length(t)
     Hasb2=Hasbot.fkine(Ntraj2(i,:));
-    N_letter2(i,:)=transl(Hasb2);  %  Extract the translation component of the pose 
-                           %  matrix (3Element column vector) stored in JTA 
-                           %  vector array
+    N_letter2(i,:)=transl(Hasb2); 
+    
     jta2=N_letter2; 
-    plot2(jta2(i,:),'r.')   %  Draw track points (red points)
-    Hasbot.plot(Ntraj2(i,:)) %  Draw trajectory animation
-    plot2(N_letter2,'m','linewidth',2)         %  Draw a trajectory line (blue line)
+    plot2(jta2(i,:),'r.')   
+    Hasbot.plot(Ntraj2(i,:)) 
+    plot2(N_letter2,'m','linewidth',2)         
 end
-%  Draw3Segment trajectory
+%  Segment 3 trajectory
 for i=1:1:length(t)
     Hasb3=Hasbot.fkine(Ntraj3(i,:));
-    N_letter3(i,:)=transl(Hasb3);  %  Extract the translation component of the pose 
-                           %  matrix (3Element column vector) stored in JTA 
-                           %  vector array
+    N_letter3(i,:)=transl(Hasb3); 
+                          
     jta3=N_letter3; 
-    plot2(jta3(i,:),'r.')   %  Draw track points (red points)
-    Hasbot.plot(Ntraj3(i,:)) %  Draw trajectory animation
-    plot2(N_letter3,'m','linewidth',2)         %  Draw a trajectory line (blue line)
+    plot2(jta3(i,:),'r.')   
+    Hasbot.plot(Ntraj3(i,:)) 
+    plot2(N_letter3,'m','linewidth',2)         
 end
-%  Draw4Segment trajectory
+%  Segment 4 trajectory
 for i=1:1:length(t)
     Hasb4=Hasbot.fkine(Ntraj4(i,:));
-    N_letter4(i,:)=transl(Hasb4);  %  Extract the translation component of the pose 
-                           %  matrix (3Element column vector) stored in JTA 
-                           %  vector array
+    N_letter4(i,:)=transl(Hasb4);  
+    
     jta4=N_letter4; 
-    plot2(jta4(i,:),'r.')   %  Draw track points (red points)
-    Hasbot.plot(Ntraj4(i,:)) %  Draw trajectory animation
-    plot2(N_letter4,'m','linewidth',2)         %  Draw a trajectory line (blue line)
+    plot2(jta4(i,:),'r.')   
+    Hasbot.plot(Ntraj4(i,:)) 
+    plot2(N_letter4,'m','linewidth',2)         
 end
-% %  Draw5Segment trajectory
+% %  Segment 5 trajectory
 for i=1:1:length(t)
     Hasb5=Hasbot.fkine(Ntraj5(i,:));
-    N_letter5(i,:)=transl(Hasb5);  %  Extract the translation component of the pose 
-                           %  matrix (3Element column vector) stored in JTA 
-                           %  vector array
+    N_letter5(i,:)=transl(Hasb5);  
+    
     jta5=N_letter5; 
-    plot2(jta5(i,:),'r.')   %  Draw track points (red points)
-    Hasbot.plot(Ntraj5(i,:)) %  Draw trajectory animation
-    plot2(N_letter5,'m','linewidth',2)         %  Draw a trajectory line (blue line)
+    plot2(jta5(i,:),'r.')   
+    Hasbot.plot(Ntraj5(i,:)) 
+    plot2(N_letter5,'m','linewidth',2)         
 end
 
 
